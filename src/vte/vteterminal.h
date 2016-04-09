@@ -347,6 +347,10 @@ char *vte_terminal_get_text_range(VteTerminal *terminal,
 				  gpointer user_data,
 				  GArray *attributes) _VTE_GNUC_NONNULL(1) G_GNUC_MALLOC;
 _VTE_PUBLIC
+void vte_terminal_get_selection_position(VteTerminal *terminal,
+                      glong *column,
+                                     glong *row) _VTE_GNUC_NONNULL(1);
+_VTE_PUBLIC
 void vte_terminal_get_cursor_position(VteTerminal *terminal,
 				      glong *column,
                                       glong *row) _VTE_GNUC_NONNULL(1);

@@ -2198,6 +2198,30 @@ vte_terminal_get_selection(VteTerminal *terminal)
 }
 
 /**
+ * vte_terminal_get_selection_position:
+ * @terminal: a #VteTerminal
+ * @column: (out) (allow-none): a location to store the column, or %NULL
+ * @row: (out) (allow-none): a location to store the row, or %NULL
+ *
+ * Reads the location of the first row/column of the current selection.
+ */
+void
+vte_terminal_get_selection_position(VteTerminal *terminal,
+                long *column,
+                                    long *row)
+{
+    g_return_if_fail(VTE_IS_TERMINAL(terminal));
+
+        auto impl = IMPL(terminal);
+    if (column) {
+                *column = impl->m_selection_start.col;
+    }
+    if (row) {
+                *row = impl->m_selection_start.row;
+    }
+}
+
+/**
  * vte_terminal_get_cursor_position:
  * @terminal: a #VteTerminal
  * @column: (out) (allow-none): a location to store the column, or %NULL
